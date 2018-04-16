@@ -22,6 +22,9 @@ const styles = {
   searchColor: '#F1F1F1',
   placeholderColor: '#C4C4C4',
 
+  container: {
+    backgroundColor: '#FFFFFF'
+  },
   contentCenter: {
     alignItems: 'center',
     justifyContent: 'center'

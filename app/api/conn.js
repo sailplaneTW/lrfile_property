@@ -55,4 +55,4 @@ const tryJson = (text) => {
   }
 }
 
-export default conn;
+export default conn

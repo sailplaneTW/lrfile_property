@@ -1,18 +1,16 @@
 
-import { Provider } from 'react-redux';
-import React, { Component } from 'react';
-import {
-  View,
-} from 'native-base';
+import { Provider } from 'react-redux'
+import React, { Component } from 'react'
+import { YellowBox, View } from 'react-native'
+import { PersistGate } from 'redux-persist/es/integration/react'
+import configureStore from './store'
 
 import InitView from './components/InitView'
 import Spinner from './components/Spinner'
-import MainTabNavigator from './components/MainTabNavigator';
+import MainTabNavigator from './components/MainTabNavigator'
 
-import { PersistGate } from 'redux-persist/es/integration/react'
-import configureStore from './store'
 const { persistor, store } = configureStore()
-
+YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
 
 export default class App extends Component {
 

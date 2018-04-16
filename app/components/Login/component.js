@@ -29,13 +29,39 @@ import component from 'app/components/BasicComponent'
 import Spinner from 'app/components/Spinner'
 const { height, width } = Dimensions.get('window')
 
+const localStyle = {
+  inputView: { 
+    width: 300, 
+    justifyContent: 'center', 
+    alignItems: 'center'
+  },
+  registerIcon: {
+    height: 196,
+  },
+  loginButtonView: {
+    alignItems: 'center', 
+    width: 150,
+  },
+  loginButtonText: {
+    fontWeight: '600'
+  },
+  loginButton: {
+    backgroundColor: styles.lightBlue 
+  },
+  registerButton: {
+    backgroundColor: '#FFFFFF', 
+    borderColor: styles.blackMiddle, 
+    borderWidth: 1,
+  }
+}
+
 export default class Login extends component {
 
   constructor(props) {
     super(props);
     this.state = {
-      username: 'max@alp.com.tw', 
-      password: 'alp54642712', 
+      username: 'propertytest@alp.com.tw', 
+      password: 'test1234', 
     }
   }
 
@@ -54,8 +80,6 @@ export default class Login extends component {
       username,
       password,
     } = this.state;
-
-
 
     if (!username || !password || username.length === 0 || password.length === 0) {
       Alert.alert('錯誤帳號/密碼', '請確認您的帳號/密碼填寫正確');
@@ -87,7 +111,6 @@ export default class Login extends component {
       console.log(error);
       switch(error) {
         case 'MissingArgs':
-
           this.showAlertMessage('登入失敗', '請確認你的帳號密碼是否正確');
           break;
 
@@ -153,20 +176,20 @@ export default class Login extends component {
     return (
       <Container>
         <HeaderLine />
-        <Content padder style={{ backgroundColor: '#FFFFFF' }} contentContainerStyle={{ alignItems: 'center', justifyContent: 'center' }}>
+        <Content padder style={styles.container} contentContainerStyle={styles.contentCenter}>
           <View style={{ height: 30 }} />
-          <Image source={require('app/assets/icons/box-register.png')} style={{height: 196 }} resizeMode="contain" />
+          <Image source={require('app/assets/icons/box-register.png')} style={localStyle.registerIcon} resizeMode="contain" />
           <View style={{ height: 24 }} />
-          <View style={{ width: 300, justifyContent: 'center', alignItems: 'center' }}>
+          <View style={localStyle.inputView}>
             <InputItem placeholder="請輸入電子信箱" value={username} onTextChange={(text) => { this.onTextChange('username', text); }} />
             <View style={{ height: 24 }} />
             <InputItem placeholder="請輸入密碼" value={password} secure={true} onTextChange={(text) => { this.onTextChange('password', text); }} />
           </View>
 
           <View style={{ height: 18 }} />
-          <View style={{ alignItems: 'center', width: 150, }}>
-            <Button full rounded style={{ backgroundColor: styles.lightBlue }} onPress={this.loginAction}>
-              <Text style={{ fontWeight: '600' }}>
+          <View style={localStyle.loginButtonView}>
+            <Button full rounded style={localStyle.loginButton} onPress={this.loginAction}>
+              <Text style={localStyle.loginButtonText}>
                 登入
               </Text>
             </Button>
@@ -174,11 +197,6 @@ export default class Login extends component {
 
 
         </Content>
-        <Button full style={{ backgroundColor: '#FFFFFF', borderColor: styles.blackMiddle, borderWidth: 1, }} onPress={this.goRegister}>
-          <Text style={styles.bodyTwo}>
-            還不是會員？立即註冊！
-          </Text>
-        </Button>
       </Container>
     )
   }

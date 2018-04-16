@@ -4,6 +4,7 @@ import { bindActionCreator } from 'app/services/actions';
 
 const mapStateToProps = state => ({
   member: state.member,
+  global: state.global,
 });
 
 const mapDispatchToProps = dispatch => ({

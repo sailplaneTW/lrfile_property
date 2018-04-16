@@ -8,10 +8,10 @@ import {
   LOGOUT,
   USER_PROFILE,
   PRODUCT_LIST,
-} from './types';
+} from './types'
 
 
-const login = (username, password) => ({ type: LOGIN, username, password});
+const login = (username, password) => ({ type: LOGIN, username, password})
 
 const loginSuccess = (username, accessToken, refreshToken, expireTime) => ({
   type: LOGIN_SUCCESS,
@@ -19,11 +19,11 @@ const loginSuccess = (username, accessToken, refreshToken, expireTime) => ({
   accessToken,
   refreshToken,
   expireTime
-});
+})
 
 const loginFail = () => ({
   type: LOGIN_FAIL,
-});
+})
 
 const refreshToken = (accessToken, expireTime) => ({
   type: REFRESH_TOKEN,
@@ -33,25 +33,25 @@ const refreshToken = (accessToken, expireTime) => ({
 
 const accessExpired = () => ({
   type: ACCESS_TOKEN_EXPIRED,
-});
+})
 
 const refreshExpired = () => ({
   type: REFRESH_TOKEN_EXPIRED,
-});
+})
 
 const logout = () => ({
   type: LOGOUT,
-});
+})
 
 const userProfile = (data) => ({
   type: USER_PROFILE,
   ...data
-});
+})
 
 const productList = (data) => ({
   type: PRODUCT_LIST,
   ...data,
-});
+})
 
 
 export {
@@ -63,4 +63,4 @@ export {
   logout,
   userProfile,
   productList,
-};
+}

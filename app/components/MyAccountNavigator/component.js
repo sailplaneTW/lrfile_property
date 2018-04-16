@@ -1,4 +1,4 @@
-import { StackNavigator } from 'react-navigation';
+import { StackNavigator } from 'react-navigation'
 
 import styles from 'app/styles'
 import Menu from '../MyAccount/Menu'
@@ -37,18 +37,18 @@ const MainNavigator = StackNavigator({
   Menu: { screen: Menu },
   AboutUs: { screen: AboutUs },
 
-}, mainNavigatorOptions);
+}, mainNavigatorOptions)
 
 
 const MyAccountRouteNavigator = StackNavigator({
   Main: { screen: MainNavigator },
   Contract: { screen: Contract, navigationOptions: { tabBarVisible: false }  },
   PrivacyContract: { screen: PrivacyContract, navigationOptions: { tabBarVisible: false } },
-}, routeNavigatorOptions);
+}, routeNavigatorOptions)
 
 
 
-export default MyAccountRouteNavigator;
+export default MyAccountRouteNavigator
 
 
 

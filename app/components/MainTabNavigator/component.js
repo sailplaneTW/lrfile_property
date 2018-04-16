@@ -1,10 +1,10 @@
 
-import React, { Component } from 'react';
-import { TabNavigator } from 'react-navigation';
-import { Platform } from 'react-native';
+import React, { Component } from 'react'
+import { TabNavigator } from 'react-navigation'
+import { Platform } from 'react-native'
 
 import MyAccountNavigator from '../MyAccountNavigator'
-import styles from 'app/styles';
+import styles from 'app/styles'
 
 
 
@@ -30,14 +30,14 @@ const options = {
   },
 }
 
-const MainTabNavi = TabNavigator(route, options);
+const MainTabNavi = TabNavigator(route, options)
 
 export default class TabarNavigator extends Component {
 
   render() {
-    const now = new Date().getTime();
-    const { member } = this.props;
-    if (member === undefined || !member.isLogin || now > member.expireTime-500000) return null;
+    const now = new Date().getTime()
+    const { member } = this.props
+    if (member === undefined || !member.isLogin || now > member.expireTime-500000) return null
     return (
       <MainTabNavi />
     )

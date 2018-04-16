@@ -1,8 +1,8 @@
 
-import React, { Component } from 'react';
-import { StackNavigator } from 'react-navigation';
-import Login from '../Login';
-import styles from 'app/styles';
+import React, { Component } from 'react'
+import { StackNavigator } from 'react-navigation'
+import Login from '../Login'
+import styles from 'app/styles'
 
 const mainNavigatorOptions = {
   headerMode: 'screen',
@@ -31,6 +31,6 @@ const routeNavigatorOptions = {
 
 const LoginNavigator = StackNavigator({
   Login: { screen: Login },
-}, mainNavigatorOptions);
+}, mainNavigatorOptions)
 
-export default LoginNavigator;
+export default LoginNavigator

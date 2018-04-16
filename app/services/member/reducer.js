@@ -35,37 +35,37 @@ const initialState = {
 
 
 export default function member(state = initialState, action) {
-  let newState = { ...state };
+  let newState = { ...state }
   switch (action.type) {
     case types.LOGIN_SUCCESS:
-      const now = new Date().getTime();
-      newState.isLogin = true;
-      newState.userName = action.userName;
-      newState.accessToken = action.accessToken;
-      newState.refreshToken = action.refreshToken;
-      newState.expireTime = now + (action.expireTime * 1000);
-      return newState;
+      const now = new Date().getTime()
+      newState.isLogin = true
+      newState.userName = action.userName
+      newState.accessToken = action.accessToken
+      newState.refreshToken = action.refreshToken
+      newState.expireTime = now + (action.expireTime * 1000)
+      return newState
 
     case types.REFRESH_TOKEN:
-      newState.accessToken = action.accessToken;
-      newState.expireTime = new Date().getTime() + (action.expireTime * 1000);
-      return newState;
+      newState.accessToken = action.accessToken
+      newState.expireTime = new Date().getTime() + (action.expireTime * 1000)
+      return newState
 
     case types.REFRESH_TOKEN_EXPIRED:
-      return initialState;
+      return initialState
 
     case types.ACCESS_TOKEN_EXPIRED:
-      newState.accessToken = '';
-      newState.expireTime = new Date().getTime() - 1000;
-      return newState;
+      newState.accessToken = ''
+      newState.expireTime = new Date().getTime() - 1000
+      return newState
 
     case types.LOGOUT:
-      newState.isLogin = false;
-      newState.isRefresh = false;
-      newState.accessToken = '';
-      newState.refreshToken = '';
-      newState.expireTime = 0;
-      return newState;
+      newState.isLogin = false
+      newState.isRefresh = false
+      newState.accessToken = ''
+      newState.refreshToken = ''
+      newState.expireTime = 0
+      return newState
 
     case types.USER_PROFILE:
       const info = {
@@ -90,9 +90,9 @@ export default function member(state = initialState, action) {
           },
         },
       }
-      newState.info = info;
-      return newState;
-    break;
+      newState.info = info
+      return newState
+    break
 
     case types.PRODUCT_LIST:
       newState.production = {
@@ -100,9 +100,9 @@ export default function member(state = initialState, action) {
         box: action['boxBuy'],
         boxSave: action['boxBuySave'],
         save: action['boxSave']
-      };
-      return newState;
-    break;
+      }
+      return newState
+    break
 
     default:
       return state

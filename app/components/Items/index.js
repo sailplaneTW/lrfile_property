@@ -5,7 +5,7 @@ import {
   SwitchItem,
   HeaderLine,
   InputItem,
-} from './component';
+} from './component'
 
 
 export {
@@ -15,4 +15,4 @@ export {
   SwitchItem,
   HeaderLine,
   InputItem,
-};
+}

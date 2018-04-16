@@ -1,25 +1,25 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
   Dimensions,
   DeviceEventEmitter,
   Image,
-} from 'react-native';
+} from 'react-native'
 import {
   View,
   Spinner,
   Text,
-} from 'native-base';
+} from 'native-base'
 
-const { width, height } = Dimensions.get('window');
+const { width, height } = Dimensions.get('window')
 
 class CoverSpinner extends Component {
   constructor(props) {
-    super(props);
-    this.listeners = [];
+    super(props)
+    this.listeners = []
     this.state = {
       text: '',
       visible: false,
-    };
+    }
   }
 
   componentDidMount() {
@@ -27,25 +27,25 @@ class CoverSpinner extends Component {
       this.setState({
         visible: true,
         text: event.text,
-      });
-    }));
+      })
+    }))
 
     this.listeners.push(DeviceEventEmitter.addListener('CoverSpinnerClose', (event) => {
       this.setState({
         visible: false,
-      });
-    }));
+      })
+    }))
   }
 
   componentWillUnmount() {
     this.listener.forEach((listener) => {
-      listener.remove();
+      listener.remove()
     })
   }
 
   render() {
-    const { visible, text } = this.state;
-    const defaultStyle = {flex: 1, width: width, height: height, position: 'absolute', left: 0, top: 0,  zIndex: 9999, justifyContent: 'center', alignItems: 'center' };
+    const { visible, text } = this.state
+    const defaultStyle = {flex: 1, width: width, height: height, position: 'absolute', left: 0, top: 0,  zIndex: 9999, justifyContent: 'center', alignItems: 'center' }
     if (visible === true) {
       return (
         <View style={defaultStyle} >
@@ -55,17 +55,17 @@ class CoverSpinner extends Component {
         </View>
       )
     } else {
-      return null;
+      return null
     }
   }
 }
 
 CoverSpinner.show = function(text) {
-  DeviceEventEmitter.emit('CoverSpinnerShow', { text: text});
+  DeviceEventEmitter.emit('CoverSpinnerShow', { text: text})
 }
 
 CoverSpinner.close = function() {
-  DeviceEventEmitter.emit('CoverSpinnerClose', { text: ''});
+  DeviceEventEmitter.emit('CoverSpinnerClose', { text: ''})
 }
 
-export default CoverSpinner;
+export default CoverSpinner

@@ -10,10 +10,11 @@ import {
   Text,
 } from 'native-base'
 
+import Welcome from '../Welcome'
 import LoginNavigator from '../LoginNavigator'
 import MainTabNavigator from '../MainTabNavigator'
 
-const { width, height } = Dimensions.get('window');
+const { width, height } = Dimensions.get('window')
 
 export default class InitView extends Component {
 
@@ -27,6 +28,10 @@ export default class InitView extends Component {
     const { member, global } = this.props;
     const now = new Date().getTime();
     const contentHeight = Platform.OS === 'ios' ? height : height-20;
+
+    if (global.firstLoading) {
+      return <Welcome style={{ top: 20, width: width, height: height-40 }} />
+    }
 
     if (!member.isLogin) {
       return (
