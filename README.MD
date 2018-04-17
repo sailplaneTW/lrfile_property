@@ -3,7 +3,7 @@
 	為了日後我們可以維護此專案，因此在此明定專案程式碼撰寫風格、方式，
 	希望大大們可以遵守以下規則：
 
-# 變數名稱
+# 變數名稱
 採用駝峰命名方式，若遇縮寫詞則以大寫表示，布林變數以is作為開頭，以下為範本：
 	
 	agent => agent
@@ -140,7 +140,7 @@
 	
 		
 # React-Native相關規範  
-	1. 面頁設計請以Menu為範例，建立目錄後在裡面新增以下頁面：
+	1. 面頁設計請以Menu為範例，建立目錄後在裡面新增以下頁面：
 		1. index.js ==> 為了import方便
 		2. screen.js ==> 撰寫navigation相關程式碼專用
 		3. container.js ==> 撰寫redux相關程式碼專用
@@ -157,7 +157,6 @@
 # 專案API相關
 	時間使用timestamp且timezone = utc，時間範圍到秒 ex: moment().utc().valueOf()/1000
 	請使用api/conn.js 作為連線，禁止直接使用fetch
-	
 # 版本控管
 	本專案使用Git
 	推薦使用SourceTree
