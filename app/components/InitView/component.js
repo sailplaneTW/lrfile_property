@@ -1,51 +1,42 @@
 
 import React, { Component } from 'react'
-import { 
+import {
   Platform,
-  Dimensions,
+  Dimensions
 } from 'react-native'
 import {
   View,
-  Button,
-  Text,
+  Text
 } from 'native-base'
 
-import Welcome from '../Welcome'
-import LoginNavigator from '../LoginNavigator'
-import MainTabNavigator from '../MainTabNavigator'
+import styles from 'app/styles'
 
 const { width, height } = Dimensions.get('window')
 
 export default class InitView extends Component {
 
-  constructor(props) {
-    super(props)
-
-  }
-
-
   render() {
-    const { member, global } = this.props;
-    const now = new Date().getTime();
-    const contentHeight = Platform.OS === 'ios' ? height : height-20;
+    const { member, global } = this.props
+    const now = new Date().getTime()
+    const contentHeight = Platform.OS === 'ios' ? height : height - 20
 
     if (global.firstLoading) {
-      return <Welcome style={{ top: 20, width: width, height: height-40 }} />
+      return <Welcome style={{ top: 20, width: width, height: height - 40 }} />
     }
 
     if (!member.isLogin) {
       return (
-        <LoginNavigator  />
+        <LoginNavigator />
       )
     }
 
     if (member.expireTime < (now + 500000)) {
-      this.refreshToken();
+      this.refreshToken()
       return (
-        <View style={{ flex: 1, width: width, height: contentHeight, position: 'absolute', left: 0, top: 0,  zIndex: 999, backgroundColor: '#FFFFFF', alignItems: 'center', justifyContent: 'center', }}>
-          <Image source={require('app/assets/icons/launch_screen.jpg')} style={{ width: width, height: height, }} />
+        <View style={{ flex: 1, width: width, height: contentHeight, position: 'absolute', left: 0, top: 0, zIndex: 999, backgroundColor: '#FFFFFF', alignItems: 'center', justifyContent: 'center' }}>
+          <Image source={require('app/assets/icons/launch_screen.jpg')} style={{ width: width, height: height }} />
           <View style={{ position: 'absolute', bottom: 8, alignItems: 'center' }}>
-            <Spinner color={styles.blackMiddle} />
+            <Spinner color={ styles.blackMiddle } />
             <Text style={{ backgroundColor: 'transparent', ...styles.headLineOne }}>登入已過期，重新授權中</Text>
           </View>
         </View>
@@ -54,12 +45,7 @@ export default class InitView extends Component {
 
     return (
       <View />
-    );
-
+    )
   }
 
 }
-
-
-
-

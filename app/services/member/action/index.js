@@ -1,5 +1,4 @@
 import {
-  LOGIN,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   ACCESS_TOKEN_EXPIRED,
@@ -7,11 +6,9 @@ import {
   REFRESH_TOKEN_EXPIRED,
   LOGOUT,
   USER_PROFILE,
-  PRODUCT_LIST,
+  PRODUCT_LIST
 } from './types'
 
-
-const login = (username, password) => ({ type: LOGIN, username, password})
 
 const loginSuccess = (username, accessToken, refreshToken, expireTime) => ({
   type: LOGIN_SUCCESS,
@@ -22,7 +19,7 @@ const loginSuccess = (username, accessToken, refreshToken, expireTime) => ({
 })
 
 const loginFail = () => ({
-  type: LOGIN_FAIL,
+  type: LOGIN_FAIL
 })
 
 const refreshToken = (accessToken, expireTime) => ({
@@ -32,15 +29,15 @@ const refreshToken = (accessToken, expireTime) => ({
 })
 
 const accessExpired = () => ({
-  type: ACCESS_TOKEN_EXPIRED,
+  type: ACCESS_TOKEN_EXPIRED
 })
 
 const refreshExpired = () => ({
-  type: REFRESH_TOKEN_EXPIRED,
+  type: REFRESH_TOKEN_EXPIRED
 })
 
 const logout = () => ({
-  type: LOGOUT,
+  type: LOGOUT
 })
 
 const userProfile = (data) => ({
@@ -50,7 +47,7 @@ const userProfile = (data) => ({
 
 const productList = (data) => ({
   type: PRODUCT_LIST,
-  ...data,
+  ...data
 })
 
 
@@ -62,5 +59,5 @@ export {
   refreshExpired,
   logout,
   userProfile,
-  productList,
+  productList
 }

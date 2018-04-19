@@ -1,57 +1,48 @@
 
-const conn = (url, options ) => {
+const conn = (url, options) => {
+  console.log(url)
+  console.log(options.body)
 
-
-  console.log(url);
-  console.log(options.body);
-
-  return fetch(url, options)
-  .then((response) => {
+  return fetch(url, options).then((response) => {
     if (response.errorMessage) {
-      throw response.errorMessage;
-      return;
+      throw response.errorMessage
     }
     if (response.status !== 200) {
-      const json = tryJson(response._bodyText);
+      const json = tryJson(response._bodyText)
       if (json && json.errorMessage) {
-        throw json.errorMessage;
+        throw json.errorMessage
       }
-      switch(response.status) {
+      switch (response.status) {
         case 401:
-          throw 'AccessTokenHasExpired';
-        break;
+          throw 'AccessTokenHasExpired'
 
         case 403:
-          throw 'PermissionDeny';
-        break;
+          throw 'PermissionDeny'
 
         case 500:
         case 501:
         case 503:
-          throw 'TIME_OUT';
-        break;
+          throw 'TIME_OUT'
 
         default:
-          throw 'SERVER_BUSY';
-        break;
+          throw 'SERVER_BUSY'
       }
     }
-    return response.json();
+    return response.json()
   }).then((response) => {
     if (response.errorMessage) {
-      throw response.errorMessage;
-      return;
+      throw response.errorMessage
     }
-    return response;
-  });
+    return response
+  })
 }
 
 const tryJson = (text) => {
   try {
-    const json = JSON.parse(text);
-    return json;
-  } catch(error) {
-    return null;
+    const json = JSON.parse(text)
+    return json
+  } catch (error) {
+    return null
   }
 }
 

@@ -2,47 +2,34 @@ import React, { Component } from 'react'
 
 import {
   Container,
-  Content,
-  View,
-  Item,
-  Text,
-  Button,
+  Content
 } from 'native-base'
 
 import {
-  WebView
-} from 'react-native'
-
-
-import {
   HeaderLine,
-  HeaderItem,
-  LinkItem,
-  InfoItem,
+  LinkItem
 } from 'app/components/Items'
 
 
 export default class AboutUs extends Component {
 
   onLinkPress = (title) => {
-    const { navigation: { navigate }} = this.props
-    switch(title) {
-
+    const { navigation: { navigate } } = this.props
+    switch (title) {
       case '隱私權政策':
         navigate('PrivacyContract')
-      break
+        break
 
       case '條款及細則':
         navigate('Contract')
-      break
+        break
 
       default:
-      break
+        break
     }
   }
 
   render() {
-
     return (
       <Container>
         <HeaderLine />

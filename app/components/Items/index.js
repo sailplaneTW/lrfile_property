@@ -4,7 +4,7 @@ import {
   LinkItem,
   SwitchItem,
   HeaderLine,
-  InputItem,
+  InputItem
 } from './component'
 
 
@@ -14,5 +14,5 @@ export {
   LinkItem,
   SwitchItem,
   HeaderLine,
-  InputItem,
+  InputItem
 }

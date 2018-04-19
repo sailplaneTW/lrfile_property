@@ -1,11 +1,9 @@
 import component from './component'
-
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 
 const mapStateToProps = state => ({
-    member: state.member,
+  member: state.member
 })
 
 const mapDispatchToProps = null

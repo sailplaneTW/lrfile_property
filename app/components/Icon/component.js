@@ -16,55 +16,56 @@ export default class Icon extends Component {
 
   render() {
     const { family, name, style } = this.props
-    let icon = (<EntypoIcon  style={style} />)
-    switch(family) {
+    let icon = (<EntypoIcon style = {style} />)
+    switch (family) {
       case 'Entypo':
         icon = (<EntypoIcon name={name} style={style} />)
-      break
+        break
 
       case 'EvilIcons':
         icon = (<EvilIconsIcon name={name} style={style} />)
-      break
+        break
 
       case 'Feather':
         icon = (<FeatherIcon name={name} style={style} />)
-      break
+        break
 
       case 'FontAwesome':
         icon = (<FontAwesomeIcon name={name} style={style} />)
-      break
+        break
 
       case 'Foundation':
         icon = (<FoundationIcon name={name} style={style} />)
-      break
+        break
 
       case 'Ionicons':
         icon = (<IoniconsIcon name={name} style={style} />)
-      break
+        break
 
       case 'MaterialIcons':
         icon = (<MaterialIconsIcon name={name} style={style} />)
-      break
+        break
 
       case 'MaterialCommunityIcons':
         icon = (<MaterialCommunityIconsIcon name={name} style={style} />)
-      break
+        break
 
       case 'Octicons':
         icon = (<OcticonsIcon name={name} style={style} />)
-      break
+        break
 
       case 'Zocial':
         icon = (<ZocialIcon name={name} style={style} />)
-      break
+        break
 
       case 'SimpleLineIcons':
         icon = (<SimpleLineIconsIcon name={name} style={style} />)
-      break
+        break
 
       default:
-      break
+        break
     }
     return icon
   }
+  
 }

@@ -1,24 +1,23 @@
 import React, { Component } from 'react'
 import {
   Dimensions,
-  DeviceEventEmitter,
-  Image,
+  DeviceEventEmitter
 } from 'react-native'
 import {
   View,
-  Spinner,
-  Text,
+  Spinner
 } from 'native-base'
 
 const { width, height } = Dimensions.get('window')
 
 class CoverSpinner extends Component {
+
   constructor(props) {
     super(props)
     this.listeners = []
     this.state = {
       text: '',
-      visible: false,
+      visible: false
     }
   }
 
@@ -26,13 +25,13 @@ class CoverSpinner extends Component {
     this.listeners.push(DeviceEventEmitter.addListener('CoverSpinnerShow', (event) => {
       this.setState({
         visible: true,
-        text: event.text,
+        text: event.text
       })
     }))
 
-    this.listeners.push(DeviceEventEmitter.addListener('CoverSpinnerClose', (event) => {
+    this.listeners.push(DeviceEventEmitter.addListener('CoverSpinnerClose', () => {
       this.setState({
-        visible: false,
+        visible: false
       })
     }))
   }
@@ -44,28 +43,27 @@ class CoverSpinner extends Component {
   }
 
   render() {
-    const { visible, text } = this.state
-    const defaultStyle = {flex: 1, width: width, height: height, position: 'absolute', left: 0, top: 0,  zIndex: 9999, justifyContent: 'center', alignItems: 'center' }
+    const { visible } = this.state
+    const defaultStyle = { flex: 1, width: width, height: height, position: 'absolute', left: 0, top: 0, zIndex: 9999, justifyContent: 'center', alignItems: 'center' }
     if (visible === true) {
       return (
         <View style={defaultStyle} >
-          {/* <Image source={require('./assets/test.gif')} style={{ width: 30, height: 30 }} /> */}
           <Spinner color='#C4C4C4' />
-          {/* <Text style={{ backgroundColor: 'transparent' }}>{text}</Text> */}
         </View>
       )
     } else {
       return null
     }
   }
+
 }
 
 CoverSpinner.show = function(text) {
-  DeviceEventEmitter.emit('CoverSpinnerShow', { text: text})
+  DeviceEventEmitter.emit('CoverSpinnerShow', { text: text })
 }
 
 CoverSpinner.close = function() {
-  DeviceEventEmitter.emit('CoverSpinnerClose', { text: ''})
+  DeviceEventEmitter.emit('CoverSpinnerClose', { text: '' })
 }
 
 export default CoverSpinner

@@ -33,5 +33,5 @@ const getUserInfo = (accessToken) => {
 export {
   login,
   getNewAccessToken,
-  getUserInfo,
+  getUserInfo
 }

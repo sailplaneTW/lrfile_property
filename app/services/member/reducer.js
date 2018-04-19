@@ -15,7 +15,7 @@ const initialState = {
     receiveAddress: {
       code: '',
       city: '',
-      detail: '',
+      detail: ''
     },
     receiptInfo: {
       title: '',
@@ -23,13 +23,13 @@ const initialState = {
       address: {
         code: '',
         city: '',
-        detail: '',
-      },
-    },
+        detail: ''
+      }
+    }
   },
   production: {
 
-  },
+  }
 
 }
 
@@ -77,7 +77,7 @@ export default function member(state = initialState, action) {
           code: action.receiveAddrInfo.receiveAddrPostcode,
           city: action.receiveAddrInfo.receiveAddrCity,
           district: action.receiveAddrInfo.receiveAddrDistrict,
-          detail: action.receiveAddrInfo.receiveAddrDetail,
+          detail: action.receiveAddrInfo.receiveAddrDetail
         },
         receiptInfo: {
           title: action.invoiceTitle,
@@ -86,13 +86,12 @@ export default function member(state = initialState, action) {
             code: action.invoiceAddrInfo.invoiceAddrPostcode,
             city: action.invoiceAddrInfo.invoiceAddrCity,
             district: action.invoiceAddrInfo.invoiceAddrDistrict,
-            detail: action.invoiceAddrInfo.invoiceAddrDetail,
-          },
-        },
+            detail: action.invoiceAddrInfo.invoiceAddrDetail
+          }
+        }
       }
       newState.info = info
       return newState
-    break
 
     case types.PRODUCT_LIST:
       newState.production = {
@@ -102,7 +101,6 @@ export default function member(state = initialState, action) {
         save: action['boxSave']
       }
       return newState
-    break
 
     default:
       return state

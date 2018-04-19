@@ -1,9 +1,8 @@
 import React from 'react'
 import {
-  Image,
+  Image
 } from 'react-native'
 import component from './component'
-
 
 
 component.navigationOptions = {

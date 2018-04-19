@@ -4,11 +4,11 @@ import { bindActionCreator } from 'app/services/actions'
 
 
 const mapStateToProps = state => ({
-  member: state.member,
+  member: state.member
 })
 
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreator(dispatch),
+  actions: bindActionCreator(dispatch)
 })
 
 export default connect(

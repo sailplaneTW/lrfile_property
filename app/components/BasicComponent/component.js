@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {
-  Alert,
+  Alert
 } from 'react-native'
 
 
@@ -11,8 +11,7 @@ export default class BasicComponent extends Component {
   }
 
   errorHandler = (error) => {
-
-    switch(error) {
+    switch (error) {
       case 'AccessTokenHasExpired':
         const { actions } = this.props
         actions.member.accessExpired()
@@ -24,13 +23,15 @@ export default class BasicComponent extends Component {
   }
 
   showAlertMessage = (title, message = ' ', doneAction, cancelAction) => {
-    if (title === '') return 
+    if (title === '') {
+      return
+    }
     const actions = []
     if (cancelAction !== undefined) {
-      switch( typeof cancelAction) {
+      switch (typeof cancelAction) {
         case 'object':
           actions.push(cancelAction)
-        break
+          break
 
         case 'function':
           actions.push({
@@ -39,27 +40,27 @@ export default class BasicComponent extends Component {
               cancelAction()
             }
           })
-        break
+          break
       }
     }
-    switch( typeof doneAction) {
+    switch (typeof doneAction) {
       case 'object':
         actions.push(doneAction)
-      break
+        break
 
       case 'function':
         actions.push({
           text: '知道了',
           onPress: () => { doneAction() }
         })
-      break
+        break
 
       default:
-          actions.push({
-            text: '知道了',
-            onPress: () => {  }
-          })
-      break
+        actions.push({
+          text: '知道了',
+          onPress: () => { }
+        })
+        break
     }
 
     Alert.alert(title, message, actions)

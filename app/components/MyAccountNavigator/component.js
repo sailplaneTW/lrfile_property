@@ -13,7 +13,7 @@ const mainNavigatorOptions = {
     headerBackTitle: ' ',
     headerTintColor: styles.lightBlue,
     headerTitleStyle: {
-      color: styles.blackDark,
+      color: styles.blackDark
     }
   }
 }
@@ -22,33 +22,28 @@ const routeNavigatorOptions = {
   headerMode: 'none',
   mode: 'modal',
   cardStyle: {
-    opacity: 1,
+    opacity: 1
   },
   navigationOptions: {
     headerBackTitle: ' ',
     cardStack: {
-      gesturesEnabled: true,
-    },
-  },
+      gesturesEnabled: true
+    }
+  }
 }
 
 const MainNavigator = StackNavigator({
 
   Menu: { screen: Menu },
-  AboutUs: { screen: AboutUs },
+  AboutUs: { screen: AboutUs }
 
 }, mainNavigatorOptions)
 
 
 const MyAccountRouteNavigator = StackNavigator({
   Main: { screen: MainNavigator },
-  Contract: { screen: Contract, navigationOptions: { tabBarVisible: false }  },
-  PrivacyContract: { screen: PrivacyContract, navigationOptions: { tabBarVisible: false } },
+  Contract: { screen: Contract, navigationOptions: { tabBarVisible: false } },
+  PrivacyContract: { screen: PrivacyContract, navigationOptions: { tabBarVisible: false } }
 }, routeNavigatorOptions)
 
-
-
 export default MyAccountRouteNavigator
-
-
-

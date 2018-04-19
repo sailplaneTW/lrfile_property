@@ -10,7 +10,7 @@ import Spinner from './components/Spinner'
 import MainTabNavigator from './components/MainTabNavigator'
 
 const { persistor, store } = configureStore()
-YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
+YellowBox.ignoreWarnings([ 'Warning: isMounted(...) is deprecated', 'Module RCTImageLoader' ])
 
 export default class App extends Component {
 
@@ -20,7 +20,7 @@ export default class App extends Component {
         <PersistGate
           persistor={persistor}
         >
-          <View style={{ flex: 1, }}>
+          <View style={{ flex: 1 }}>
             <InitView />
             <MainTabNavigator />
             <Spinner />
@@ -32,4 +32,3 @@ export default class App extends Component {
   }
 
 }
-
