@@ -11,7 +11,7 @@ const initialState = {
   version: '1.0',
   firstLoading: true,
   needUpdate: false,
-  updatedTime: 0,
+  updatedTime: 0
 }
 
 

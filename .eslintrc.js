@@ -2,11 +2,22 @@ module.exports = {
   "extends": "standard",
   "parser": "babel-eslint",
   "plugins": [
-    "react"
+    "react",
+    "react-native"
   ],
+  "env": {
+    "react-native/react-native": true
+  },
   "parserOptions": {
     "ecmaVersion": 2017,
-    "sourceType": "module"
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "jsx": true
+    }
+  },
+  "globals": {
+    "Headers": true,
   },
   "rules": {
     "eqeqeq": ["error", "always"],
@@ -14,7 +25,10 @@ module.exports = {
     "no-labels": "error",
     "no-throw-literal": "off",
     "no-unused-vars": ["error", { "varsIgnorePattern": "(^React|Icon)$" }],
-    "react/jsx-uses-vars": ["error"],
+    "react-native/no-unused-styles": 2,
+    "react-native/split-platform-components": 2,
+    "react-native/no-inline-styles": 2,
+    "react-native/no-color-literals": 2,
     "indent": ["error", 2, { "SwitchCase": 1 }],
     "array-bracket-spacing": [2, "always", { "singleValue": true }],
     "no-whitespace-before-property": "error",

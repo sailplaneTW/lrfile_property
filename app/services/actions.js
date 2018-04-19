@@ -5,9 +5,9 @@ import { bindActionCreators } from 'redux'
 
 const bindActionCreator = (dispatch) => ({
   global: bindActionCreators(global, dispatch),
-  member: bindActionCreators(member, dispatch),
-});
+  member: bindActionCreators(member, dispatch)
+})
 
 export {
   bindActionCreator
-};
+}
