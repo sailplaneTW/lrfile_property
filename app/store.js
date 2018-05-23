@@ -7,6 +7,8 @@ import storage from 'redux-persist/es/storage' // default: localStorage if web, 
 import member from './services/member/reducer'
 import global from './services/global/reducer'
 
+import logger from 'redux-logger'
+
 const reducers = {
   member: member,
   global: global,
@@ -21,7 +23,7 @@ const config = {
 const reducer = persistCombineReducers(config, reducers)
 
 export default function configureStore() {
-  let store = createStore(reducer)
+  let store = createStore(reducer, applyMiddleware(logger))
   let persistor = persistStore(store)
   return { store, persistor }
 }
