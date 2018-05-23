@@ -13,6 +13,9 @@ import styles from 'app/styles'
 
 const { width, height } = Dimensions.get('window')
 
+import Welcome from '../Welcome'
+import LoginNavigator from '../LoginNavigator'
+
 export default class InitView extends Component {
 
   render() {

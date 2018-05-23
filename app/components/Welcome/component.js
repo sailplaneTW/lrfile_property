@@ -15,6 +15,8 @@ import {
 
 import styles from 'app/styles'
 
+import {Button} from 'native-base'
+
 const { width, height } = Dimensions.get('window')
 
 export default class WelcomeView extends Component {
